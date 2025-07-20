@@ -25,6 +25,7 @@ div.innerContainer {
 li.listItem {
   padding-bottom: 40px;
   color: white;
+  cursor: pointer;
   @include mixins.fontPrimaryBold;
   &:last-child {
     padding-bottom: 0;
