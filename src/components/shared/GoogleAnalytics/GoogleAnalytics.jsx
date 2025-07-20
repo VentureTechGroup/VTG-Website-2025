@@ -4,7 +4,7 @@ export default function GoogleAnalytics() {
     <>
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=GTM-W93WP98D`}
         strategy="afterInteractive"
       />
       <Script
@@ -20,9 +20,7 @@ export default function GoogleAnalytics() {
               dataLayer.push(arguments);
             }
             gtag('js', new Date());
-            gtag('config', '${
-              process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID
-            }', {
+            gtag('config', "GTM-W93WP98D", {
               page_path: window.location.pathname,
             });
           `,
