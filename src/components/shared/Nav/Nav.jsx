@@ -11,13 +11,17 @@ import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import { useState } from 'react';
 import HubspotCta from '../HubspotCta/HubspotCta';
 
-export const navData = [
+export const getNavData = ({ isNavLink, isFooterLink }) => [
   { title: 'Services', url: '#services' },
   { title: 'Partner', url: '#partner' },
   {
     title: 'Contact',
     Component: () => (
-      <HubspotCta formId="f319e099-9ebc-4c6c-b6eb-b3cb0b3aab4c" isNavLink>
+      <HubspotCta
+        formId="f319e099-9ebc-4c6c-b6eb-b3cb0b3aab4c"
+        isNavLink={isNavLink}
+        isFooterLink={isFooterLink}
+      >
         Contact
       </HubspotCta>
     ),
@@ -28,6 +32,7 @@ export default function Nav({ pathname }) {
   const { isDesktop, isMobile } = useWindowSize();
   const [isOpen, setIsOpen] = useState(false);
   const showNavLinks = isDesktop || isOpen;
+  const navData = getNavData({ isNavLink: true, isFooterLink: false });
   return (
     <nav className={clsx(styles.nav)} id="navigation">
       <Wrapper>

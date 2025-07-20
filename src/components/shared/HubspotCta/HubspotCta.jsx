@@ -5,6 +5,7 @@ import styles from './HubspotCta.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import NavLink from '../Nav/NavLinks/NavLink/NavLink';
+import { FooterLink } from '../Footer/Footer';
 
 export default function HubspotCta({
   children,
@@ -13,6 +14,7 @@ export default function HubspotCta({
   isVariant = false,
   classNames = '',
   isNavLink = false,
+  isFooterLink = false,
 }) {
   const portalId = '49124298';
   const [showForm, setShowForm] = useState(false);
@@ -62,6 +64,8 @@ export default function HubspotCta({
     <>
       {isNavLink ? (
         <NavLink handleClick={handleClick} title="Contact" />
+      ) : isFooterLink ? (
+        <FooterLink title="Contact" handleClick={handleClick} />
       ) : (
         <Button
           isSmall={isSmall}

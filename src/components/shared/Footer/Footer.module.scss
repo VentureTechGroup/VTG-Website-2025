@@ -20,13 +20,14 @@ div.innerContainer {
   list-style: none;
   text-transform: uppercase;
   padding-top: 10px;
-  li {
-    padding-bottom: 40px;
-    color: white;
-    @include mixins.fontPrimaryBold;
-    &:last-child {
-      padding-bottom: 0;
-    }
+}
+
+li.listItem {
+  padding-bottom: 40px;
+  color: white;
+  @include mixins.fontPrimaryBold;
+  &:last-child {
+    padding-bottom: 0;
   }
 }
 

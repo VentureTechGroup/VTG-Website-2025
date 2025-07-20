@@ -1,6 +1,6 @@
 'use client';
 import styles from './Footer.module.scss';
-import { navData } from '@/components/shared/Nav/Nav';
+import { getNavData } from '@/components/shared/Nav/Nav';
 import Image from 'next/image';
 import Link from 'next/link';
 import logo from 'public/logo.png';
@@ -10,7 +10,22 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import glassdoor from 'public/glassdoor.png';
 import HubspotCta from '../HubspotCta/HubspotCta';
 
+export const FooterLink = ({ title, url, handleClick = null }) => {
+  if (handleClick) {
+    return (
+      <li className={styles.listItem} onClick={handleClick}>
+        {title}
+      </li>
+    );
+  }
+  return (
+    <li className={styles.listItem}>
+      <Link href={url}>{title}</Link>
+    </li>
+  );
+};
 export default function Footer() {
+  const navData = getNavData({ isNavLink: false, isFooterLink: true });
   return (
     <footer className={styles.footer} id="footer">
       <Wrapper classNames={styles.innerContainer}>
@@ -18,13 +33,18 @@ export default function Footer() {
           <Image src={logo} width={230} height="auto" alt="Logo" priority />
         </Link>
         <ul className={styles.list}>
-          {/* {navData.map(item => {
+          {navData.map(item => {
+            if (item.Component) {
+              return (
+                <li key={item.title} className={styles.listItem}>
+                  <item.Component />
+                </li>
+              );
+            }
             return (
-              <li key={item.title}>
-                <Link href={item.url}>{item.title}</Link>
-              </li>
+              <FooterLink key={item.title} title={item.title} url={item.url} />
             );
-          })} */}
+          })}
         </ul>
         <div className={styles.rightContainer}>
           <div className={styles.buttons}>
