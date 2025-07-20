@@ -56,9 +56,6 @@ export default function Sponsors() {
     <div className={styles.container} id="partner">
       <h2 className={styles.title}>Experts In Your Revenue Tech Stack</h2>
       <Tiles sponsors={sponsors} />
-      <Button href="#" classNames={styles.button}>
-        Become a partner
-      </Button>
     </div>
   );
 }

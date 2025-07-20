@@ -9,18 +9,18 @@ import Wrapper from '../Wrapper/Wrapper';
 import useWindowSize from '@/hooks/useWindowSize';
 import HamburgerMenu from './HamburgerMenu/HamburgerMenu';
 import { useState } from 'react';
-import { ROUTES } from '@/utils/constants';
+import HubspotCta from '../HubspotCta/HubspotCta';
 
 export const navData = [
-  // { title: 'About', url: ROUTES.ABOUT },
-  // { title: 'Team', url: ROUTES.TEAM },
-  // { title: 'Case Studies', url: ROUTES.CASE_STUDIES },
-  // { title: 'Resources', url: ROUTES.RESOURCES },
   { title: 'Services', url: '#services' },
   { title: 'Partner', url: '#partner' },
   {
     title: 'Contact',
-    url: ROUTES.CONTACT,
+    Component: () => (
+      <HubspotCta formId="f319e099-9ebc-4c6c-b6eb-b3cb0b3aab4c" isNavLink>
+        Contact
+      </HubspotCta>
+    ),
   },
 ];
 

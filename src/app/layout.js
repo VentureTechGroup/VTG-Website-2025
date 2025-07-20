@@ -13,7 +13,6 @@ const poppins = Poppins({
 });
 
 export default function RootLayout({ children }) {
-  console.log('testing');
   return (
     <html lang="en" className={poppins.variable}>
       <body>{children}</body>

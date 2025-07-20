@@ -4,15 +4,13 @@ import Link from 'next/link';
 
 export default function NavLink({
   url = '',
-  pathname = '',
   isMobile = false,
   title = '',
   Component = null,
   setIsOpen = () => {},
   isAnchor,
+  handleClick: handleClickProp = null,
 }) {
-  const removeSlashes = ({ url }) => url.replace(/\//g, '');
-  const isActive = removeSlashes({ url }) === removeSlashes({ url: pathname });
   if (Component)
     return (
       <li>
@@ -22,17 +20,20 @@ export default function NavLink({
 
   const closeNav = () => setIsOpen(false);
 
+  const handleClick = () => {
+    if (handleClickProp) {
+      handleClickProp();
+    }
+    closeNav();
+  };
+
   return (
     <li
       key={title}
-      className={clsx(
-        styles.menuItem,
-        isActive ? styles.isActive : '',
-        isMobile ? styles.isMobile : ''
-      )}
+      className={clsx(styles.menuItem, isMobile ? styles.isMobile : '')}
     >
       {!isAnchor && (
-        <Link href={url} onClick={closeNav}>
+        <Link href={url} onClick={handleClick}>
           {title}
         </Link>
       )}
