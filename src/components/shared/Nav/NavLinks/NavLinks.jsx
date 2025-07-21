@@ -1,3 +1,4 @@
+'use client';
 import NavLink from './NavLink/NavLink';
 import styles from './NavLinks.module.scss';
 import clsx from 'clsx';
@@ -17,9 +18,7 @@ export default function NavLinks({
       )}
       <div className={clsx(styles.navLinks, isOpen && styles.open)}>
         {navData.map((navLinkData, index) => {
-          const key = navLinkData.Component
-            ? `custom-${index}`
-            : navLinkData.title;
+          const key = `navLink-${navLinkData.title}`;
           return (
             <div key={key} className={styles.link}>
               <NavLink

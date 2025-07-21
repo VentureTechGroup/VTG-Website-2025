@@ -35,11 +35,7 @@ export default function Footer() {
         <ul className={styles.list}>
           {navData.map(item => {
             if (item.Component) {
-              return (
-                <li key={item.title} className={styles.listItem}>
-                  <item.Component />
-                </li>
-              );
+              return <item.Component key={item.title} />;
             }
             return (
               <FooterLink key={item.title} title={item.title} url={item.url} />

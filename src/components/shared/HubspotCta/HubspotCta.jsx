@@ -34,7 +34,7 @@ export default function HubspotCta({
         window.hbspt.forms.create({
           portalId,
           formId,
-          target: '#hubspotForm',
+          target: `#hubspotForm-${formId}`,
         });
       }
     };
@@ -63,9 +63,9 @@ export default function HubspotCta({
   return (
     <>
       {isNavLink ? (
-        <NavLink handleClick={handleClick} title="Contact" />
+        <NavLink handleClick={handleClick} title={children} />
       ) : isFooterLink ? (
-        <FooterLink title="Contact" handleClick={handleClick} />
+        <FooterLink title={children} handleClick={handleClick} />
       ) : (
         <Button
           isSmall={isSmall}
@@ -86,7 +86,7 @@ export default function HubspotCta({
             >
               <FontAwesomeIcon icon={faClose} size="xl" />
             </button>
-            <div id="hubspotForm" />
+            <div id={`hubspotForm-${formId}`} />
           </div>
         </div>
       )}

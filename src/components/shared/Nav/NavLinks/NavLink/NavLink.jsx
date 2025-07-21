@@ -1,3 +1,4 @@
+'use client';
 import clsx from 'clsx';
 import styles from './NavLink.module.scss';
 import Link from 'next/link';
@@ -11,12 +12,7 @@ export default function NavLink({
   isAnchor,
   handleClick: handleClickProp = null,
 }) {
-  if (Component)
-    return (
-      <li>
-        <Component />
-      </li>
-    );
+  if (Component) return <Component />;
 
   const closeNav = () => setIsOpen(false);
 

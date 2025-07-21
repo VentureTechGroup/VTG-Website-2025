@@ -13,7 +13,18 @@ import HubspotCta from '../HubspotCta/HubspotCta';
 
 export const getNavData = ({ isNavLink, isFooterLink }) => [
   { title: 'Services', url: '#services' },
-  { title: 'Partner', url: '#partner' },
+  {
+    title: 'Partner',
+    Component: () => (
+      <HubspotCta
+        formId="dd0313f3-ecdb-44a3-9f16-7870f673832e"
+        isNavLink={isNavLink}
+        isFooterLink={isFooterLink}
+      >
+        Partner
+      </HubspotCta>
+    ),
+  },
   {
     title: 'Contact',
     Component: () => (
