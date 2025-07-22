@@ -28,7 +28,7 @@
   height: auto;
   display: block;
   margin: 30px auto;
-  width: 400px;
+  width: 100%;
   padding: 0 40px;
 }
 
@@ -57,7 +57,7 @@
   @include mixins.fontPrimaryMedium;
 }
 
-@media screen and (max-width: variables.$mobile) {
+@media screen and (max-width: variables.$tablet) {
   .container {
     margin-top: 150px;
   }

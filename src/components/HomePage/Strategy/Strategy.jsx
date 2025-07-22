@@ -11,9 +11,6 @@ const data = [
     details:
       'The team that scopes your project is the team that delivers the outcomes, avoiding costly miscommunications.',
     image: zeroHandoff,
-    styles: {
-      padding: '0 80px',
-    },
   },
   {
     label: 'MVP MINDSET',
@@ -45,7 +42,6 @@ export default function Strategy() {
                 src={item.image}
                 alt={item.label}
                 className={styles.image}
-                style={item.styles}
               />
               <p className={styles.details}>{item.details}</p>
             </div>
