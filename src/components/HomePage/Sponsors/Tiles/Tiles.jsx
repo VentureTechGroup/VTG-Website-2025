@@ -3,13 +3,10 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Tiles.module.scss';
 import Image from 'next/image';
 import clsx from 'clsx';
-import useWindowSize from '@/hooks/useWindowSize';
 
 export default function Tiles({ sponsors }) {
   const containerRef = useRef(null);
   const [offset, setOffset] = useState(0);
-
-  const { isMobile } = useWindowSize();
 
   // scroll animation
   useEffect(() => {
@@ -34,9 +31,7 @@ export default function Tiles({ sponsors }) {
     return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
-  const sponsorsWithDuplicates = !isMobile
-    ? [...sponsors, ...sponsors]
-    : sponsors;
+  const sponsorsWithDuplicates = [...sponsors, ...sponsors];
 
   return (
     <div className={styles.outerContainer}>
