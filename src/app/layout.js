@@ -1,6 +1,6 @@
 import { Poppins } from 'next/font/google';
 import './globals.css';
-import GoogleAnalytics from '@/components/shared/GoogleAnalytics/GoogleAnalytics';
+import GTM from '@/components/shared/GTM/GTM';
 
 export const metadata = {
   title: 'Venture Tech Group',
@@ -16,9 +16,14 @@ const poppins = Poppins({
 export default function RootLayout({ children }) {
   return (
     <>
-      <GoogleAnalytics />
       <html lang="en" className={poppins.variable}>
-        <body>{children}</body>
+        <head>
+          <GTM.Head />
+        </head>
+        <body>
+          <GTM.NoScript />
+          {children}
+        </body>
       </html>
     </>
   );
