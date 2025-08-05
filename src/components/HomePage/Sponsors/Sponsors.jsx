@@ -10,7 +10,8 @@ import sup from 'public/sponsors/sup.png';
 import Tiles from './Tiles/Tiles';
 import clay from 'public/sponsors/clay.png';
 import fivetran from 'public/sponsors/fivetran.png';
-import Button from '@/components/shared/Button/Button';
+import nue from 'public/sponsors/nue.png';
+import mulesoft from 'public/sponsors/mulesoft.png';
 
 const sponsors = [
   {
@@ -48,6 +49,14 @@ const sponsors = [
   {
     src: clay,
     alt: 'Clay',
+  },
+  {
+    src: nue,
+    alt: 'Nue',
+  },
+  {
+    src: mulesoft,
+    alt: 'Mulesoft',
   },
 ];
 
