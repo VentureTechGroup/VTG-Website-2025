@@ -12,7 +12,7 @@ export default function Heading() {
         Reach Your {isMobile && <br />} Revenue Potential
       </h1>
       <HubspotCta formId="f319e099-9ebc-4c6c-b6eb-b3cb0b3aab4c">
-        Let's Chat
+        Let's Do Some Chats
       </HubspotCta>
     </Wrapper>
   );
