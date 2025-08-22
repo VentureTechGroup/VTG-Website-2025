@@ -78,7 +78,7 @@ function EmbeddedAgentDeployment() {
         src={bootstrapSrc}
         onLoad={() => {
           // Call the same thing the raw <script onload="..."> would call
-          try { (window as any).initEmbeddedMessaging?.(); } catch (e) {
+          try { (window).initEmbeddedMessaging?.(); } catch (e) {
             console.error('initEmbeddedMessaging threw:', e);
           }
         }}
