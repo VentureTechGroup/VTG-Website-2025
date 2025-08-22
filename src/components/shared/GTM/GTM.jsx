@@ -36,9 +36,61 @@ function NoScript() {
   );
 }
 
+/**
+ * 1) Define initEmbeddedMessaging on the page first.
+ * 2) Load Salesforce bootstrap and call init on load (like the raw <script onload>).
+ */
+function EmbeddedAgentDeployment() {
+  if (!isProduction) return null;
+
+  const bootstrapSrc =
+    'https://venturetechgroup--uat.sandbox.my.site.com/ESWVTGWebsiteMessaging1754648854815/assets/js/bootstrap.min.js';
+
+  return (
+    <>
+      {/* 1) Define the init function */}
+      <Script
+        id="agent-embed-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.initEmbeddedMessaging = function initEmbeddedMessaging() {
+              try {
+                embeddedservice_bootstrap.settings.language = 'en_US';
+                embeddedservice_bootstrap.init(
+                  '00DEi00000COEFr',
+                  'VTG_Website_Messaging_Setting',
+                  'https://venturetechgroup--uat.sandbox.my.site.com/ESWVTGWebsiteMessaging1754648854815',
+                  { scrt2URL: 'https://venturetechgroup--uat.sandbox.my.salesforce-scrt.com' }
+                );
+              } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+              }
+            };
+          `,
+        }}
+      />
+
+      {/* 2) Load the external script and call init when it finishes */}
+      <Script
+        id="agent-embed-bootstrap"
+        strategy="afterInteractive"
+        src={bootstrapSrc}
+        onLoad={() => {
+          // Call the same thing the raw <script onload="..."> would call
+          try { (window as any).initEmbeddedMessaging?.(); } catch (e) {
+            console.error('initEmbeddedMessaging threw:', e);
+          }
+        }}
+      />
+    </>
+  );
+}
+
 const GTM = {
   Head,
   NoScript,
+  EmbeddedAgentDeployment
 };
 
 export default GTM;
