@@ -1,6 +1,9 @@
 import { Poppins } from 'next/font/google';
 import './globals.css';
 import GTM from '@/components/shared/GTM/GTM';
+import EmbeddedAgentDeployment from '@/components/EmbeddedAgentDeployment';
+
+const isProduction = true;
 
 export const metadata = {
   title: 'Venture Tech Group',
@@ -23,7 +26,7 @@ export default function RootLayout({ children }) {
         <body>
           <GTM.NoScript />
           {children}
-          <GTM.EmbeddedAgentDeployment />
+          <GTMEmbeddedAgent enabled={isProduction} />
         </body>
       </html>
     </>
