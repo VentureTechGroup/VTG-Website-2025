@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
         <body>
           <GTM.NoScript />
           {children}
-          <GTMEmbeddedAgent enabled={isProduction} />
+          <EmbeddedAgentDeployment enabled={isProduction} />
         </body>
       </html>
     </>
