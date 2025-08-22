@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
         <body>
           <GTM.NoScript />
           {children}
+          <GTM.EmbeddedAgentDeployment />
         </body>
       </html>
     </>
