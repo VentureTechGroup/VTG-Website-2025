@@ -8,7 +8,7 @@ export default function EmbeddedAgentDeployment({ enabled = false }: Props) {
   if (!enabled) return null;
 
   const bootstrapSrc =
-    'https://venturetechgroup--uat.sandbox.my.site.com/ESWVTGWebsiteMessaging1754648854815/assets/js/bootstrap.min.js';
+    'https://venturetechgroup.my.site.com/ESWVTGWebsiteDeployment1755962030439/assets/js/bootstrap.min.js';
 
   return (
     <>
@@ -22,10 +22,10 @@ export default function EmbeddedAgentDeployment({ enabled = false }: Props) {
               try {
                 embeddedservice_bootstrap.settings.language = 'en_US';
                 embeddedservice_bootstrap.init(
-                  '00DEi00000COEFr',
-                  'VTG_Website_Messaging_Setting',
-                  'https://venturetechgroup--uat.sandbox.my.site.com/ESWVTGWebsiteMessaging1754648854815',
-                  { scrt2URL: 'https://venturetechgroup--uat.sandbox.my.salesforce-scrt.com' }
+                  '00D1U000000D82m',
+                  'VTG_Website_Deployment',
+                  'https://venturetechgroup.my.site.com/ESWVTGWebsiteDeployment1755962030439',
+                  { scrt2URL: 'https://venturetechgroup.my.salesforce-scrt.com' }
                 );
               } catch (err) {
                 console.error('Error loading Embedded Messaging: ', err);
