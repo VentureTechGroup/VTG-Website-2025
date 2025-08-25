@@ -38,7 +38,7 @@ function NoScript() {
 
 const GTM = {
   Head,
-  NoScript,
+  NoScript
 };
 
 export default GTM;
