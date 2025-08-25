@@ -49,7 +49,7 @@ export default function Footer() {
               isSmall
               classNames={styles.button}
             >
-              Let's Chat
+              Let's Connect
             </HubspotCta>
             <HubspotCta
               formId="dd0313f3-ecdb-44a3-9f16-7870f673832e"
